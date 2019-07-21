@@ -1,4 +1,4 @@
-package io.github.dynammock.dynamicmockserver.model
+package io.github.dynammock.dynamicmock.server.model
 
 import scala.beans.BeanProperty
 import org.springframework.context.annotation.Bean

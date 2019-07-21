@@ -1,4 +1,4 @@
-package io.github.dynammock.dynamicmockserver
+package io.github.dynammock.dynamicmock.server.server
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.SpringApplication
