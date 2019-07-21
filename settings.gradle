@@ -1,6 +1,5 @@
 include 'dynamic-mock-server'
 include 'dynamic-mock-client'
-include 'dynamic-mock-core'
-
+include 'dynamic-mock-common'
 
 rootProject.name = 'dynamic-mock'
