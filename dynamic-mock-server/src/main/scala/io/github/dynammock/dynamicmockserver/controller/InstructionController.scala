@@ -20,26 +20,16 @@ import javax.persistence.GeneratedValue
 import javax.persistence.Entity
 import scala.beans.BeanProperty
 import javax.persistence.Id
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import java.util.List
 
 @RestController
-class RequestController {
+class InstructionController {
 
-  @RequestMapping(Array("/mock/**"))
-  def process(httpRequest: HttpServletRequest) = {
-    println(processRequest(httpRequest).toString())
-  }
-
-  def processRequest(httpRequest: HttpServletRequest): InRequest = {
-    def getHeaders(headerNames: Enumeration[String], headers: Map[String, String] = Map[String, String]()): Map[String, String] =
-      if (!headerNames.hasMoreElements) headers
-      else {
-        val headerName = headerNames.nextElement
-        getHeaders(headerNames, headers + (headerName -> (httpRequest getHeader headerName)))
-      }
-
-    def getBody(httpRequest: HttpServletRequest): String = httpRequest.getReader().lines().collect(Collectors.joining(System.lineSeparator()))
-
-    new InRequest(httpRequest.getRequestURI, getHeaders(httpRequest.getHeaderNames))
+  @PostMapping(value = Array("/instruction"))
+  def process(@RequestBody mockRules: List[MockRule]) = {
+    println(mockRules.size())    
   }
 
 }

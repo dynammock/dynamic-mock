@@ -1,4 +1,9 @@
 apply plugin: 'java-library'
+apply plugin: 'scala'
+
+group = 'io.github.dynammock'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
 
 repositories {
     mavenCentral()
@@ -7,4 +12,3 @@ repositories {
 dependencies {
     testImplementation 'junit:junit:4.12'
 }
-
