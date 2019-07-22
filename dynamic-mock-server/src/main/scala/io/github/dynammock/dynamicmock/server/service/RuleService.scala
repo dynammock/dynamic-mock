@@ -22,11 +22,11 @@ class RuleService() {
   @Autowired @BeanProperty val ruleRepository: RuleRepository = null
 
   def createRule(mockRule: MockRule): Unit = {
-    val rule = new Rule
-    rule.uuid = mockRule.getUuid()
-    rule.permanent = mockRule.getPermanent()
-    rule.request = new ObjectMapper().writeValueAsString(mockRule.getRequest())
-    rule.response = new ObjectMapper().writeValueAsString(mockRule.getResponse())
+    val rule = new Rule(
+      mockRule.getUuid(),
+      mockRule.getPermanent(),
+      new ObjectMapper().writeValueAsString(mockRule.getRequest()),
+      new ObjectMapper().writeValueAsString(mockRule.getResponse()))
     ruleRepository.save(rule)
   }
 
@@ -41,11 +41,10 @@ class RuleService() {
   }
 
   def ruleToMockRule(rule: Rule): MockRule = new MockRule(
-      rule.getUuid(), 
-      rule.getPermanent(), 
-      new ObjectMapper().readValue(rule.getRequest(), classOf[MockRequest]), 
-      new ObjectMapper().readValue(rule.getResponse(), classOf[MockResponse])
-  )
+    rule.getUuid(),
+    rule.getPermanent(),
+    new ObjectMapper().readValue(rule.getRequest(), classOf[MockRequest]),
+    new ObjectMapper().readValue(rule.getResponse(), classOf[MockResponse]))
 
   def getRule(uuid: String): MockRule = {
     val rule = ruleRepository findById uuid
