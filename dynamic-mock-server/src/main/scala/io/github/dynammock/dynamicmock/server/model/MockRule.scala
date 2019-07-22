@@ -2,7 +2,11 @@ package io.github.dynammock.dynamicmock.server.model
 
 import scala.beans.BeanProperty
 
-class MockRule(@BeanProperty val request: MockRequest, @BeanProperty val response: MockResponse,
-               @BeanProperty val permanent: Boolean, @BeanProperty val uuid: String) extends Serializable {
+class MockRule( 
+    @BeanProperty val uuid: String,
+    @BeanProperty val permanent: Boolean,
+    @BeanProperty val request: MockRequest, 
+    @BeanProperty val response: MockResponse,
+    )extends Serializable {
 
 }

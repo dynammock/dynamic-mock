@@ -16,7 +16,7 @@ limitations under the License.package io.github.dynammock.dynamicmock.server.ser
 
 */
 
-package io.github.dynammock.dynamicmock.server.server
+package io.github.dynammock.dynamicmock.server
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.SpringApplication

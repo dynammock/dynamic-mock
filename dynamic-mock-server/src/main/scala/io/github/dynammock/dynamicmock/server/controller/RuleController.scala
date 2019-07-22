@@ -22,13 +22,29 @@ import javax.persistence.Id
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import java.util.List
+import com.fasterxml.jackson.databind.ObjectMapper
+import io.github.dynammock.dynamicmock.server.service.RuleService
+import org.springframework.web.bind.annotation.DeleteMapping
+import org.springframework.web.bind.annotation.PathVariable
 
 @RestController
-class InstructionController {
+class RuleController {
 
-  @PostMapping(value = Array("/instruction"))
-  def process(@RequestBody mockRules: List[MockRule]) = {
-    println(mockRules.size())    
-  }
+  @Autowired @BeanProperty val ruleService: RuleService = null
+
+  @PostMapping(Array("/rules"))
+  def process(@RequestBody mockRules: List[MockRule]) = ruleService.createRules(mockRules)
+
+  @DeleteMapping(Array("/rules"))
+  def deleteAllRules() = ruleService.removeAllRules()
+
+  @DeleteMapping(Array("/rules/{uuid}"))
+  def deleteRule(@PathVariable("uuid") uuid: String) = ruleService.removeRule(uuid)
+
+  @GetMapping(Array("/rules"))
+  def getAllRules() = ruleService.getAllRules()
+  
+  @GetMapping(Array("/rule/{uuid}"))
+  def getRule(@PathVariable("uuid") uuid: String) = ruleService.getRule(uuid)
 
 }
