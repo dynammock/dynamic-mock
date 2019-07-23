@@ -5,6 +5,7 @@ import java.util.HashMap
 import java.util.Map
 
 class MockResponse() {
+  
   @BeanProperty var statusCode: Int = 200
   @BeanProperty var headers: Map[String, String] = new HashMap()
   @BeanProperty var body: String = null

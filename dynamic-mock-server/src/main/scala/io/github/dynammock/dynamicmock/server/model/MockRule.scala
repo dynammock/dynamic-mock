@@ -7,6 +7,4 @@ class MockRule(
     @BeanProperty val permanent: Boolean,
     @BeanProperty val request: MockRequest, 
     @BeanProperty val response: MockResponse,
-    )extends Serializable {
-
-}
+    ) 

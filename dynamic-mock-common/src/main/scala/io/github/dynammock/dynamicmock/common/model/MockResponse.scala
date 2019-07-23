@@ -5,7 +5,7 @@ import java.util.HashMap
 import java.util.Map
 
 class MockResponse(@BeanProperty val statusCode: Int = 200, @BeanProperty val headers: Map[String, String] = new HashMap(),
-                   @BeanProperty val body: String = null) extends Serializable {
+                   @BeanProperty val body: String = null) {
 
   def statusCode(statusCode: Int): MockResponse = new MockResponse(statusCode, headers, body)
   def header(headerName: String, headerValue: String): MockResponse = {

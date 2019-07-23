@@ -16,10 +16,9 @@ limitations under the License.package io.github.dynammock.dynamicmock.server.ser
 
 */
 
-package io.github.dynammock.dynamicmock.client
-
-import java.util.List
 import java.util.ArrayList
+import java.util.List
+
 import org.springframework.web.client.RestTemplate
 import io.github.dynammock.dynamicmock.client.model.MockRule
 

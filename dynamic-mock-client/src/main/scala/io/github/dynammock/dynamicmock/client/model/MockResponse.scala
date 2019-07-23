@@ -4,8 +4,18 @@ import scala.beans.BeanProperty
 import java.util.HashMap
 import java.util.Map
 
-class MockResponse(@BeanProperty val statusCode: Int = 200, @BeanProperty val headers: Map[String, String] = new HashMap(),
-                   @BeanProperty val body: String = null) extends Serializable {
+class MockResponse() {
+  
+  @BeanProperty var statusCode: Int = 200
+  @BeanProperty var headers: Map[String, String] = new HashMap()
+  @BeanProperty var body: String = null
+
+  def this(statusCode: Int, headers: Map[String, String], body: String) = {
+    this()
+    this.statusCode = statusCode
+    this.headers = headers
+    this.body = body
+  }
 
   def statusCode(statusCode: Int): MockResponse = new MockResponse(statusCode, headers, body)
   def header(headerName: String, headerValue: String): MockResponse = {

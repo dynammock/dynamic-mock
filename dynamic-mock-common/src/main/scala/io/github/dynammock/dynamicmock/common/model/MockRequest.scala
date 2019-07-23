@@ -6,7 +6,7 @@ import java.util.Map
 import io.github.dynammock.dynamicmock.common.model.enums.Method
 
 class MockRequest(@BeanProperty val method: Method = Method.ANY, @BeanProperty val path: String = "/",
-                  @BeanProperty val headers: Map[String, String] = new HashMap(), @BeanProperty val body: String = null) extends Serializable {
+                  @BeanProperty val headers: Map[String, String] = new HashMap(), @BeanProperty val body: String = null) {
 
   def method(method: Method): MockRequest = new MockRequest(method, path, headers, body)
   def path(path: String): MockRequest = new MockRequest(method, path, headers, body)
